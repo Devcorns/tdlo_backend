@@ -2,11 +2,11 @@ var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 var dbConfig = {
-    url: "mongodb://localhost:27017/node-demo",
-    connect: function(){
+    url: "mongodb://localhost:27017/ep-rat",
+    connect: function() {
         mongoose.connect(dbConfig.url, { useNewUrlParser: true });
     },
-    close: function(){
+    close: function() {
         mongoose.connection.close();
     }
 }

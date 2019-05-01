@@ -1,16 +1,19 @@
 var mongoose = require("mongoose");
-var check = require("./../company-details/check-profile");
+var chkProf = require("./../company-details/check-profile");
+//var addProf = require("./../company-details/add-profile");
 
 var companyProfile = {
     
-    checkProfile : function(e) {
+    checkProfile : function(data) {
 
-        return check.search(e);
+        chkProf.search(data);
+
     },
 
     addProfile : function(e) {
 
-        //console.log(e)
+        //return addProf.setProfile(e);
+
     }
 
 }

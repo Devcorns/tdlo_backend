@@ -9,7 +9,10 @@ router.get('/companyList', function(req, res, next) {
 
     dbConfig.connect();
     //cmpnyLst.checkProfile();
-    res.send(cmpnyLst.checkProfile());
+    cmpnyLst.checkProfile(function(data){
+        res.send(data);
+    });
+    //res.send(cmpnyLst.checkProfile());
 
 });
 
