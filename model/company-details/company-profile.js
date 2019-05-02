@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+//var mongoose = require("mongoose");
 var chkProf = require("./../company-details/check-profile");
 //var addProf = require("./../company-details/add-profile");
 
