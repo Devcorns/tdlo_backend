@@ -9,11 +9,12 @@ router.get('/companyList', function(req, res, next) {
 
     //dbConfig.connect();
     //cmpnyLst.checkProfile();
-    cmpnyLst.checkProfile(function(data){
-        console.log(req);
-        res.send(data);
+    cmpnyLst.checkProfile(async function(data) {
+        
+        console.log(Object.values(req.query).join(''));
+        await res.send(data);
     });
-    //res.send(cmpnyLst.checkProfile());
+    
 
 });
 
