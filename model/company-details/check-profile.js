@@ -3,7 +3,7 @@ var dbConfig = require("./../dbconfig");
 var companyData;
 var profile = {
     
-    search:function(callback) {
+    search:function(callback,params) {
         
         dbConfig.connect();
         var db = dbConfig.getMongooseConnection();
@@ -19,10 +19,10 @@ var profile = {
              findData();
         }
         function findData() {
-            companyData.find({name}, function(err, data) {
+            console.log(" Get ISG ",Object.values(params.query).join('').toString());
+            companyData.find({"name":Object.values(params.query).join('').toString()},function(err, data) {
                 if (err) return handleError(err);
                 dbConfig.close();
-                //console.log(data)
                 callback(data);
             });
         }

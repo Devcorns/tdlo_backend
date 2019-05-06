@@ -4,9 +4,9 @@ var chkProf = require("./../company-details/check-profile");
 
 var companyProfile = {
     
-    checkProfile : function(data) {
-        //console.log("I am console");
-        chkProf.search(data);
+    checkProfile : function(data,params) {
+        console.log("I am console",Object.values(params.query).join('').toString());
+        chkProf.search(data,params);
 
     },
 
