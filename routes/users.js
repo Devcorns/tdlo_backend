@@ -7,16 +7,19 @@ var cmpnyLst = require("./../model/company-details/company-profile");
 /* GET users listing. */
 router.get('/companyList', function(req, res, next) {
 
-    //dbConfig.connect();
-    //cmpnyLst.checkProfile();
     cmpnyLst.checkProfile(function(data) {
-        
-    
          res.send(data);
     },req);
     
 
 });
+router.get('/get-company-details', function(req, res, next) {
 
+    cmpnyLst.viewProfile(function(data) {
+         res.send(data);
+    },req);
+    
+
+});
 
 module.exports = router;
