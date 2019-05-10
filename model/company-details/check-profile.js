@@ -19,8 +19,8 @@ var profile = {
              findData();
         }
         function findData() {
-            console.log(" Get ISG ",Object.values(params.query).join('').toString());
-            companyData.find({"name":Object.values(params.query).join('').toString()},function(err, data) {
+            console.log(" Get ISG ",params.query.search_term);
+            companyData.find({"name":params.query.search_term},function(err, data) {
                 if (err) return handleError(err);
                 dbConfig.close();
                 callback(data);

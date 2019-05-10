@@ -11,7 +11,7 @@ var companyProfile = {
     },
 
     viewProfile : function(data,params) {
-        console.log("I am viewProfile");
+        console.log("I am viewProfile",params);
         viewProf.get(data,params);
     }
 

@@ -10,22 +10,26 @@ var viewProfile = {
         
         // Mongoose model compiled once issue generated so we use try here so we use try to handle this issue    
         try {
-            console.log("INslide view profile .js ",params.query);
+            console.log("INslide view profile .js ",params.query.search_term);
             companyData = mongoose.model('company_profile', {name:String},'company_profile');
             viewData();
             
             
         } catch (error) {
-                
+            console.log(error)
+            companyData = new mongoose.model('company_profile');
              viewData();
         }
         function viewData() {
-            console.log(" Get ISG ",Object.values(params.query).join('').toString());
-            companyData.find({"_id":Object.values(params.query).join('').toString()},function(err, data) {
+            var k = params.query.search_term
+            console.log(" Get ISG in viewprofile.js ",typeof params.query.search_term,"companyData =>",companyData);
+            
+            companyData.findOne({"_id":params.query.search_term},function(err, data) {
                 if (err) return handleError(err);
                 dbConfig.close();
                 callback(data);
             });
+            
         }
     }
 
