@@ -1,0 +1,8 @@
+{"_id":{"$oid":"5cc988e5eccd8ee4d1f7239c"},"name":"ISG"}
+{"_id":{"$oid":"5cd3f05207a4f731ab6a23f9"},"name":"GOOGLE","strength":200000.0}
+{"_id":{"$oid":"5cd55daf2e134b43929843a5"}}
+{"_id":{"$oid":"5cd566bbfed18f4bec24c05c"},"name":"kbc"}
+{"_id":{"$oid":"5cd566c6fed18f4bec24c05d"},"name":"dc"}
+{"_id":{"$oid":"5cd566c9fed18f4bec24c05e"},"name":"dc"}
+{"_id":{"$oid":"5cd56760fed18f4bec24c05f"},"name":"dc","strength":17.0,"origin":2017.0,"dept":{"it":6.0,"acct":5.0,"hr":2.0,"mngr":3.0,"ownr":1.0},"tech":["Node","PhP","MongoDB","Javascript","Android","Angular"],"empList":["Empid1","Empid2"],"size":"Small","location":"noida","Nation":"india","type":"local"}
+{"_id":{"$oid":"5cd56ad143b732730a7147a3"},"name":"DC","strength":17.0,"origin":2017.0,"dept":{"it":6.0,"acct":5.0,"hr":2.0,"mngr":3.0,"ownr":1.0},"tech":["Node","PhP","MongoDB","Javascript","Android","Angular"],"empList":["Empid1","Empid2"],"size":"Small","location":"noida","Nation":"india","type":"local"}
