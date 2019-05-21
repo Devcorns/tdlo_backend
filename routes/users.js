@@ -23,7 +23,16 @@ router.get('/get-company-details', function(req, res, next) {
 
 });
 
-router.get('/searchEmployeeProfile', function(req, res, next) {
+router.get('/search-employee', function(req, res, next) {
+
+    empLst.searchEmployeeProfile(function(data) {
+         res.send(data);
+    },req);
+    
+
+});
+
+router.get('/add-employee', function(req, res, next) {
 
     empLst.searchEmployeeProfile(function(data) {
          res.send(data);
