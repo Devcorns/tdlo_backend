@@ -22,4 +22,4 @@ var employeeProfile = {
 
 }
 
-module.exports = companyProfile;
+module.exports = employee;

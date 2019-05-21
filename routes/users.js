@@ -3,7 +3,7 @@ var router = express.Router();
 
 //var dbConfig = require("./../model/dbconfig");
 var cmpnyLst = require("./../model/company-details/company-profile");
-var empLst = require("./../model/employee-details/add-employee");
+var empLst = require("./../model/employee-details/employee-profile");
 
 /* GET users listing. */
 router.get('/companyList', function(req, res, next) {
