@@ -33,10 +33,11 @@ router.get('/search-employee', function(req, res, next) {
 });
 
 router.get('/add-employee', function(req, res, next) {
-
-    empLst.searchEmployeeProfile(function(data) {
-         res.send(data);
-    },req);
+    console.log("add-employee called");
+    res.send("add-employee called");
+    // empLst.setProfile(function(data) {
+    //      res.send(data);
+    // },req);
     
 
 });
