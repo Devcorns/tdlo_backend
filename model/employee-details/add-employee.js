@@ -28,7 +28,7 @@ var setProfile = {
          try {
 
             employeeCollection = mongoose.model('emp_profiles', {mobile : Number},'emp_profiles');
-            console.log("Add Employee .js ", params.query.search_term);
+            // console.log("Add Employee .js ", params.query);
             setData();
 
          } catch (error) {
@@ -39,7 +39,8 @@ var setProfile = {
          }
 
          function setData() {
-            callback(params.query.search_term);
+            //  console.log(params);
+             callback({"message":""});
             
             //   new employeeCollection({
 

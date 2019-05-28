@@ -32,8 +32,8 @@ router.get('/search-employee', function(req, res, next) {
 
 });
 
-router.get('/add-employee', function(req, res, next) {
-    console.log("add-employee called");
+router.post('/add-employee', function(req, res, next) {
+    console.log("add-employee called",req.body);
     //res.send("add-employee called");
     empLst.setProfile(function(data) {
          res.send(data);

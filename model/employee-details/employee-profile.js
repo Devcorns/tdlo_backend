@@ -16,7 +16,7 @@ var employee = {
     },
 
     setProfile : function(data,params) {
-        console.log("I am setProfile",params);
+        //console.log("I am setProfile",params);
         addEmp.set(data,params);
     }
 
