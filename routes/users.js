@@ -35,9 +35,11 @@ router.get('/search-employee', function(req, res, next) {
 router.post('/add-employee', function(req, res, next) {
     console.log("add-employee called",req.body);
     //res.send("add-employee called");
+
+    //setProfile function pass a func & employee data recieved by api in req.body 
     empLst.setProfile(function(data) {
          res.send(data);
-    },req);
+    },req.body);
     
 
 });

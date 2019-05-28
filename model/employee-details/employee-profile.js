@@ -15,9 +15,9 @@ var employee = {
         viewProf.get(data,params);
     },
 
-    setProfile : function(data,params) {
+    setProfile : function(callBackFunc,empLoyeeData) {
         //console.log("I am setProfile",params);
-        addEmp.set(data,params);
+        addEmp.set(callBackFunc,empLoyeeData);
     }
 
 }
