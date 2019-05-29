@@ -39,18 +39,26 @@ var setProfile = {
          }
 
          function setData() {
-            //  console.log(params);
+              console.log("data by api",dataByApi);
             
             
               new employeeCollection({
 
-                    fname:dataByApi.fname, 
-                    lname: dataByApi.lname,
-                    mobile: dataByApi.empMobile,
-                    countryCode:dataByApi.cntryCode,
-                    designation:dataByApi.designation,
-                    exp:dataByApi.Experience, 
-            
+                     fname: dataByApi.fname, 
+                     lname: dataByApi.last,
+                     designation: dataByApi.designation,
+                     exp: dataByApi.Experience, 
+                     countryCode: dataByApi.cntryCode,
+                     mobile: dataByApi.empMobile,
+                  //   
+                  //   
+                  //   
+                  //   fname: "Prakhar", 
+                  //   lname: "M",
+                  //   mobile: 716273125,
+                  //   countryCode: 91,
+                  //   designation: "UI Dev",
+                  //   exp: 3, 
 
               }).save(function (err, data) {
 

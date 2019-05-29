@@ -40,6 +40,8 @@ var searchProfile = {
             console.log(getApiData.query.search_term);
 
             employeeCollection.find({ "mobile": getApiData.query.search_term }, (err, data) => {
+                
+                console.log(data);
 
                 if( data.length ) {
                     callBackFunc({ "message": data, status: true });
