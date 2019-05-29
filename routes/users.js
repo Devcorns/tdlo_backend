@@ -25,7 +25,7 @@ router.get('/get-company-details', function(req, res, next) {
 
 router.get('/search-employee', function(req, res, next) {
 
-    empLst.searchEmployeeProfile(function(data) {
+    empLst.checkProfile(function(data) {
          res.send(data);
     },req);
     
@@ -38,8 +38,7 @@ router.post('/add-employee', function(req, res, next) {
     empLst.setProfile(function(data) {
          res.send(data);
     },req);
-    
-
 });
+
 
 module.exports = router;
