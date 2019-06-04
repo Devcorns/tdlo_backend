@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+
 var dbConfig = require("./../dbconfig");
 var employeeCollection;
 
@@ -39,32 +40,23 @@ var setProfile = {
          }
 
          function setData() {
+
               console.log("data by api",dataByApi);
-            
-            
+              
               new employeeCollection({
 
-                     fname: dataByApi.fname, 
+                     fname: dataByApi.fname,
                      lname: dataByApi.last,
                      designation: dataByApi.designation,
-                     exp: dataByApi.Experience, 
+                     exp: dataByApi.Experience,
                      countryCode: dataByApi.cntryCode,
-                     mobile: dataByApi.empMobile,
-                  //   
-                  //   
-                  //   
-                  //   fname: "Prakhar", 
-                  //   lname: "M",
-                  //   mobile: 716273125,
-                  //   countryCode: 91,
-                  //   designation: "UI Dev",
-                  //   exp: 3, 
-
+                     mobile: dataByApi.empMobile
+                 
               }).save(function (err, data) {
 
                  if (err) return console.error(err);
                  console.log(data + " saved to Employee collection.");
-                 callBackFunc({"message":dataByApi,"status":true});
+                 callBackFunc({"message":dataByApi, "status":true});
 
               });
         
