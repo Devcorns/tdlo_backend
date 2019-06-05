@@ -7,7 +7,7 @@ var empLst = require("./../model/employee-details/employee-profile");
 
 
 /* Add Company Profile. */
-router.get('/addCompanyProfile', function(req, res, next) {
+router.post('/addCompanyProfile', function(req, res, next) {
     cmpnyLst.addProfile(function(data) {
         res.send(data);
     }, req.body);
