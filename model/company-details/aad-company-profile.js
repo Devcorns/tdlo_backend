@@ -1,5 +1,8 @@
 var mongoose = require("mongoose");
 var dbConfig = require("./../dbconfig");
+
+var chkCmpny = require("./check-profile");
+
 var companyData;
 
 var addCompanyProfile = {
@@ -13,7 +16,7 @@ var addCompanyProfile = {
         // Mongoose model compiled once issue generated so we use try here so we use try to handle this issue
         try {
             console.log("INslide view addCompanyProfile .js ",params);
-             companyData = mongoose.model('company_profile', {name:String},'company_profile');
+             companyData = mongoose.model('company_profile', {companyName:String, comapnyCategory:String,countryCode:Number, stateCode:Number, contactNo:Number, companyAddr:String},'company_profile');
              addCompanyProfile();
         } catch (error) {
             console.log(error)
@@ -23,15 +26,33 @@ var addCompanyProfile = {
 
         function addCompanyProfile() {
             
-            console.log(" Get ISG in viewprofile.js ", "companyData =>",companyData);
+            console.log(" Get ISG in add company profile .js ",params);
+            let saveData = function (val) {
+                if(!val) {
+                    var cd = new companyData(params);
+                    cd.save(function (err, data) {
+                        if (err) return console.error(err);
+                        callback(data);
+                    });
+                }
+                else {
+                    callback({ exist: true });
+                }
+               
+            }
+            chkCmpny.searchByInner(params.companyName, saveData);
             
-            companyData.findOne({"companyMobile":params.companyMobile}, function(err, data) {
-               // if (err) return handleError(err);
-                console.log("Company data find one",data)
-                dbConfig.close();
-                callback(data);
-            });
+            // companyData.insert({"companyMobile":params.comapnyCategory}, function(err, data) {
+            //    // if (err) return handleError(err);
+            //     console.log("Company data find one",data)
+            //     dbConfig.close();
+            //     callback(data);
+            // });
             
+            
+
+
+
         }
     }
 

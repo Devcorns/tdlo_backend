@@ -3,7 +3,7 @@ var dbConfig = require("./../dbconfig");
 var companyData;
 var profile = {
     
-    search:function(callback,params) {
+    search: function(callback,params) {
         
         dbConfig.connect();
         var db = dbConfig.getMongooseConnection();
@@ -11,7 +11,7 @@ var profile = {
         // Mongoose model compiled once issue generated so we use try here so we use try to handle this issue    
         try {
             
-            companyData = mongoose.model('company_profile', {name:String},'company_profile');
+            companyData = mongoose.model('company_profile', {companyName:String},'company_profile');
             findData();
             
         } catch (error) {
@@ -26,6 +26,29 @@ var profile = {
                 callback(data);
             });
         }
+    },
+    searchByInner: function(data, callBackFunc) {
+        
+        try {
+            
+            companyData = mongoose.model('company_profile', {companyName: String},'company_profile');
+            findData();
+            
+        } catch (error) {
+            companyData = new mongoose.model('company_profile');
+             findData();
+        }
+         function findData() {
+            console.log(" Get ISG ",data,companyData);
+            companyData.find({"companyName": data}, function(err, val) {
+                if (err) return handleError(err);
+                //dbConfig.close();
+                
+
+                callBackFunc(val.length);
+            });
+        }
+        //console.log(data)
     }
 
 }
