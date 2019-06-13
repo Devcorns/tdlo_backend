@@ -12,7 +12,7 @@ var addCompanyProfile = {
         dbConfig.connect();
         var db = dbConfig.getMongooseConnection();
         console.log("Set Profile Called");
-        //callback(params)
+        // callback(params)
         // Mongoose model compiled once issue generated so we use try here so we use try to handle this issue
         try {
             console.log("INslide view addCompanyProfile .js ",params);
@@ -27,20 +27,27 @@ var addCompanyProfile = {
         function addCompanyProfile() {
             
             console.log(" Get ISG in add company profile .js ",params);
+
             let saveData = function (val) {
+                console.log("value of val",val);
                 if(!val) {
+                    console.log("params")
                     var cd = new companyData(params);
                     cd.save(function (err, data) {
                         if (err) return console.error(err);
+                       
                         callback(data);
                     });
+                    //callback(params);
                 }
                 else {
                     callback({ exist: true });
                 }
                
             }
-            chkCmpny.searchByInner(params.companyName, saveData);
+
+            chkCmpny.searchByInner(params.contactNo, saveData);
+           
             
             // companyData.insert({"companyMobile":params.comapnyCategory}, function(err, data) {
             //    // if (err) return handleError(err);

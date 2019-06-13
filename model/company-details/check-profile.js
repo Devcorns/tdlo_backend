@@ -30,25 +30,25 @@ var profile = {
     searchByInner: function(data, callBackFunc) {
         
         try {
-            
             companyData = mongoose.model('company_profile', {companyName: String},'company_profile');
             findData();
-            
         } catch (error) {
             companyData = new mongoose.model('company_profile');
              findData();
         }
-         function findData() {
-            console.log(" Get ISG ",data,companyData);
-            companyData.find({"companyName": data}, function(err, val) {
-                if (err) return handleError(err);
-                //dbConfig.close();
-                
+        
+        function findData() {
 
+            console.log(" Get ISG ",data,companyData);
+            companyData.find({"contactNo": data}, function(err, val) {
+
+                if (err) return handleError(err);
                 callBackFunc(val.length);
+
             });
+
         }
-        //console.log(data)
+        
     }
 
 }
