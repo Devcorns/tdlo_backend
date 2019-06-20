@@ -19,12 +19,25 @@ var profile = {
              findData();
         }
         function findData() {
-            console.log(" Get ISG ",params.query.search_term);
-            companyData.find({"name":params.query.search_term},function(err, data) {
-                if (err) return handleError(err);
-                dbConfig.close();
-                callback(data);
-            });
+            console.log(" Get ISG ",typeof params.query.search_term );
+            if(params.query.search_term!=""){
+                companyData.find(
+                    {
+                        "companyName": { 
+                            $regex : "^" +  params.query.search_term
+                        }
+                    }, 
+                    function(err, data) {
+                    if (err) return handleError(err);
+                    dbConfig.close();
+                    //console.log(data);
+                    callback(data);
+                });
+            }
+            else{
+                callback({result:false});
+            }
+           
         }
     },
     searchByInner: function(data, callBackFunc) {

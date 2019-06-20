@@ -17,6 +17,8 @@ var addCompanyProfile = {
         try {
             console.log("INslide view addCompanyProfile .js ",params);
              companyData = mongoose.model('company_profile', {companyName:String, comapnyCategory:String,countryCode:Number, stateCode:Number, contactNo:Number, companyAddr:String},'company_profile');
+
+         
              addCompanyProfile();
         } catch (error) {
             console.log(error)
@@ -35,8 +37,9 @@ var addCompanyProfile = {
                     var cd = new companyData(params);
                     cd.save(function (err, data) {
                         if (err) return console.error(err);
-                       
+                        console.log(data)
                         callback(data);
+
                     });
                     //callback(params);
                 }

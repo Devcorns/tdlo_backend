@@ -22,7 +22,7 @@ var viewProfile = {
         }
         function viewData() {
             var k = params.query.search_term
-            console.log(" Get ISG in viewprofile.js ","params.query.search_term => ",typeof params.query.search_term,"companyData =>",companyData);
+            console.log(" Get ISG in viewdata function viewprofile.js ","params.query.search_term => ",typeof params.query.search_term,"companyData =>",companyData);
             
             companyData.findOne({"_id":params.query.search_term},function(err, data) {
                // if (err) return handleError(err);
